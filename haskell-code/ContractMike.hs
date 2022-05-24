@@ -7,6 +7,8 @@ einfaches Beispiel
 Zero Coupon Bond / Zero-Bond
 "Ich bekomme am 24.12.2022 100€."
 
+Schritt 2:
+einfaches Beispiel in kleinere Bestandteile zerlegen
 -}
 data Currency = EUR | GBP
   deriving Show 
@@ -17,3 +19,9 @@ data Date = Date String
   deriving (Show, Eq, Ord)
 
 date1 = Date "2022-12-24"
+
+{-
+data Contract =
+    ZeroCouponBond Date Amount Currency
+    deriving Show
+-}
