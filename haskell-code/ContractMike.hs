@@ -10,7 +10,7 @@ Zero Coupon Bond / Zero-Bond
 Schritt 2:
 einfaches Beispiel in kleinere Bestandteile/Ideen zerlegen
 - Währung "1€ jetzt"
-- Betrag/Vielfaches
+- Betrag/Vielfaches "100€ jetzt"
 - Später
 
 -}
@@ -29,3 +29,8 @@ data Contract =
     ZeroCouponBond Date Amount Currency
     deriving Show
 -}
+
+data Contract =
+    One Currency
+  | Multiple Amount Contract
+  deriving Show
