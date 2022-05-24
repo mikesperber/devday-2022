@@ -50,6 +50,7 @@ data Contract =
   | Later Date Contract
   | Reverse Contract
   | And Contract Contract
+  | Empty -- neutrales Element bezüglich And
   deriving Show
 
 zcb1 = Later (Date "2022-24-12") (Multiple 100 (One EUR))
@@ -60,6 +61,7 @@ zeroCouponBond date amount currency =
 
 zcb2 = Reverse (zeroCouponBond (Date "2022-24-12") 100 GBP)
 
+fxSwap :: Date -> Amount -> Currency -> Amount -> Currency -> Contract
 fxSwap date amount1 currency1 amount2 currency2 =
     And (zeroCouponBond date amount1 currency1)
         (Reverse (zeroCouponBond date amount2 currency2))
