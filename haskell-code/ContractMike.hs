@@ -67,3 +67,13 @@ fxSwap :: Date -> Amount -> Currency -> Amount -> Currency -> Contract
 fxSwap date amount1 currency1 amount2 currency2 =
     And (zeroCouponBond date amount1 currency1)
         (Reverse (zeroCouponBond date amount2 currency2))
+
+data Direction = Long | Short  
+  deriving Show 
+
+data Payment =
+    Payment Date Direction Amount Currency
+  deriving Show
+
+-- Welche Zahlungen entstehen durch einen Vertrag?
+contractPayments :: Contract -> [Payment]
