@@ -6,7 +6,7 @@ ARG HLS_VERSION=1.7.0.0
 ARG HOME=/root
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends curl ca-certificates build-essential libffi-dev libffi7 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 zlib1g-dev
+RUN apt-get install -y --no-install-recommends curl ca-certificates build-essential libffi-dev libffi7 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 zlib1g-dev libnuma-dev llvm
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
