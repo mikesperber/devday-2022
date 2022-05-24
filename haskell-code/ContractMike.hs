@@ -75,12 +75,17 @@ data Payment =
     Payment Date Direction Amount Currency
   deriving Show
 
+scalePayment factor (Payment date direction amount currency) =
+    Payment date direction (factor * amount) currency
+
 -- type ContractState = (Date, Contract)
 -- Welche Zahlungen entstehen durch einen Vertrag?
 contractPayments :: Contract -> Date -> ([Payment], Contract)
 contractPayments (One currency) now =
     ([Payment now Long 1 currency], Empty)
-contractPayments (Multiple amount contract) now = undefined
+contractPayments (Multiple amount contract) now =
+    let (payments, residualContract) = contractPayments contract now
+    in 
 contractPayments (Later date contract) now = undefined
 contractPayments (Reverse contract) now = undefined
 contractPayments (And contract1 contract2) now = undefined
