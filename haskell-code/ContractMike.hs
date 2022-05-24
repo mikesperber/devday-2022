@@ -53,6 +53,8 @@ data Contract =
   | Empty -- neutrales Element bezüglich And
   deriving Show
 
+one = One
+
 zcb1 = Later (Date "2022-24-12") (Multiple 100 (One EUR))
 
 zeroCouponBond :: Date -> Amount -> Currency -> Contract
